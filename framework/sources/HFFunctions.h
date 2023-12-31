@@ -3,6 +3,7 @@
 #import <HexFiend/HFFrameworkPrefix.h>
 #import <HexFiend/HFTypes.h>
 #import <libkern/OSAtomic.h>
+#import <tgmath.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -291,34 +292,19 @@ static inline HFRange HFIntersectionRange(HFRange range1, HFRange range2) {
 }
 
 /*! ceil() for a CGFloat, for compatibility with OSes that do not have the CG versions.  */
-static inline CGFloat HFCeil(CGFloat a) {
-    if (sizeof(a) == sizeof(float)) return (CGFloat)ceilf((float)a);
-    else return (CGFloat)ceil((double)a);
-}
+#define HFCeil(__a) ceil((__a))
 
 /*! floor() for a CGFloat, for compatibility with OSes that do not have the CG versions.  */
-static inline CGFloat HFFloor(CGFloat a) {
-    if (sizeof(a) == sizeof(float)) return (CGFloat)floorf((float)a);
-    else return (CGFloat)floor((double)a);
-}
+#define HFFloor(__a) floor((__a))
 
 /*! round() for a CGFloat, for compatibility with OSes that do not have the CG versions.  */
-static inline CGFloat HFRound(CGFloat a) {
-    if (sizeof(a) == sizeof(float)) return (CGFloat)roundf((float)a);
-    else return (CGFloat)round((double)a);
-}
+#define HFRound(__a) round((__a))
 
 /*! fmin() for a CGFloat, for compatibility with OSes that do not have the CG versions.  */
-static inline CGFloat HFMin(CGFloat a, CGFloat b) {
-    if (sizeof(a) == sizeof(float)) return (CGFloat)fminf((float)a, (float)b);
-    else return (CGFloat)fmin((double)a, (double)b);    
-}
+#define HFMin(__a, __b) fmin((__a), (__b))
 
 /*! fmax() for a CGFloat, for compatibility with OSes that do not have the CG versions.  */
-static inline CGFloat HFMax(CGFloat a, CGFloat b) {
-    if (sizeof(a) == sizeof(float)) return (CGFloat)fmaxf((float)a, (float)b);
-    else return (CGFloat)fmax((double)a, (double)b);    
-}
+#define HFMax(__a, __b) fmax((__a), (__b))
 
 /*! Returns true if the given HFFPRanges are equal.  */
 static inline BOOL HFFPRangeEqualsRange(HFFPRange a, HFFPRange b) {
@@ -326,13 +312,7 @@ static inline BOOL HFFPRangeEqualsRange(HFFPRange a, HFFPRange b) {
 }
 
 /*! copysign() for a CGFloat */
-static inline CGFloat HFCopysign(CGFloat a, CGFloat b) {
-#if CGFLOAT_IS_DOUBLE
-    return copysign(a, b);
-#else
-    return copysignf(a, b);
-#endif
-}
+#define HFCopysign(__a, __b) copysign((__a), (__b))
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -477,19 +457,19 @@ NSString *HFDescribeByteCountWithPrefixAndSuffix(const char *_Nullable stringPre
 }
 
 /*! Returns the HFRange for this HFRangeWrapper. */
-- (HFRange)HFRange;
+@property (readonly) HFRange HFRange;
 
 /*! Creates an autoreleased HFRangeWrapper for this HFRange. */
 + (HFRangeWrapper *)withRange:(HFRange)range;
 
 /*! Creates an NSArray of HFRangeWrappers for this HFRange. */
-+ (NSArray *)withRanges:(const HFRange *)ranges count:(NSUInteger)count;
++ (NSArray<HFRangeWrapper*> *)withRanges:(const HFRange *)ranges count:(NSUInteger)count;
 
 /*! Given an NSArray of HFRangeWrappers, get all of the HFRanges into a C array. */
 + (void)getRanges:(HFRange *)ranges fromArray:(NSArray *)array;
 
 /*! Given an array of HFRangeWrappers, returns a "cleaned up" array of equivalent ranges.  This new array represents the same indexes, but overlapping ranges will have been merged, and the ranges will be sorted in ascending order. */
-+ (NSArray *)organizeAndMergeRanges:(NSArray *)inputRanges;
++ (NSArray<HFRangeWrapper*> *)organizeAndMergeRanges:(NSArray<HFRangeWrapper*> *)inputRanges;
 
 @end
 
@@ -513,7 +493,7 @@ NSString *HFDescribeByteCountWithPrefixAndSuffix(const char *_Nullable stringPre
 + (HFRangeSet *)withRanges:(const HFRange *)ranges count:(NSUInteger)count;
 
 /*! Create a range set with an array of HFRangeWrappers. No prior sorting is necessary. */
-+ (HFRangeSet *)withRangeWrappers:(NSArray *)ranges;
++ (HFRangeSet *)withRangeWrappers:(NSArray<HFRangeWrapper*> *)ranges;
 
 /*! Create a range set as a copy of another. */
 + (HFRangeSet *)withRangeSet:(HFRangeSet *)rangeSet;

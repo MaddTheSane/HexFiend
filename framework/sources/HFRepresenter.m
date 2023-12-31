@@ -6,6 +6,7 @@
 //
 
 #import "HFRepresenter.h"
+#import "HFRepresenter_Internal.h"
 #import <HexFiend/HFAssert.h>
 
 @implementation HFRepresenter
@@ -59,13 +60,7 @@
     UNIMPLEMENTED();
 }
 
-- (HFController *)controller {
-    return controller;
-}
-
-- (void)_setController:(HFController *)val {
-    controller = val;
-}
+@synthesize controller;
 
 - (void)controllerDidChange:(HFControllerPropertyBits)bits {
     USE(bits);

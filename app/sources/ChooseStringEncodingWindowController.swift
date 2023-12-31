@@ -39,7 +39,7 @@ class ChooseStringEncodingWindowController: NSWindowController, NSTableViewDeleg
     }
     
     func populateStringEncodings() {
-        encodings = HFEncodingManager.shared().systemEncodings.map({ encoding in
+        encodings = HFEncodingManager.shared.systemEncodings.map({ encoding in
             let label: String
             if encoding.name == encoding.identifier {
                 label = encoding.name

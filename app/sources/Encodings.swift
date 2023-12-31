@@ -34,7 +34,7 @@ class Encodings: NSObject {
     }
     
     @objc func menuSystemEncodings() -> [HFNSStringEncoding] {
-        let encodingManager = HFEncodingManager.shared()
+        let encodingManager = HFEncodingManager.shared
         return menuSystemEncodingsNumbers.compactMap { encoding in
             guard let encodingObj = encodingManager.systemEncoding(encoding.uintValue) else {
                 print("Unknown encoding \(encoding)")

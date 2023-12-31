@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*! Returns YES if the view has been created, NO if it has not.  To create the view, call the view method.
  */
-- (BOOL)isViewLoaded;
+@property (readonly, getter=isViewLoaded) BOOL viewLoaded;
 
 /*! Override point for creating the view displaying this representation.  This is called on your behalf the first time the \c -view method is called, so you would not want to call this explicitly; however this method must be overridden.  This follows the "create" rule, and so it should return a retained view.
 */
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 //@{
 /*! Returns the HFController for the receiver.  This is set by the controller from the call to \c addRepresenter:. A representer can only be in one controller at a time. */
-- (nullable HFController *)controller;
+@property (readonly, weak, nullable) HFController *controller;
 //@}
 
 /*! @name Property change notifications
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*! Returns the default layout position for representers of this class.  Within the -init method, the view's layout position is set to the default for this class.  You may override this to control the default layout position.  See HFLayoutRepresenter for a discussion of the significance of the layout postition.
 */
-+ (NSPoint)defaultLayoutPosition;
+@property (class, readonly) NSPoint defaultLayoutPosition;
 #endif
 
 //@}
