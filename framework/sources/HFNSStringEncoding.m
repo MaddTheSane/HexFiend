@@ -49,13 +49,8 @@
     return [string dataUsingEncoding:self.encoding allowLossyConversion:NO];
 }
 
-- (NSString *)name {
-    return _name;
-}
-
-- (NSString *)identifier {
-    return _identifier;
-}
+@synthesize name = _name;
+@synthesize identifier = _identifier;
 
 - (BOOL)isEqual:(id)object {
     if ([object class] != [HFNSStringEncoding class]) {

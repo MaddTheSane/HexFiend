@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HFEncodingManager : NSObject
 
 + (instancetype)shared;
+@property (class, readonly, strong) HFEncodingManager *shared;
 
 @property (readonly) NSArray<HFNSStringEncoding *> *systemEncodings;
 - (nullable HFNSStringEncoding *)systemEncoding:(NSStringEncoding)systenEncoding;

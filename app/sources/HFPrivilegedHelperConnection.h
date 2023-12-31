@@ -22,6 +22,7 @@ struct HFProcessInfo_t {
 @property BOOL disabled; ///< When set, fail all requests as if the connection failed.
 
 + (instancetype)sharedConnection;
+@property (class, readonly, strong) HFPrivilegedHelperConnection *sharedConnection;
 - (BOOL)launchAndConnect:(NSError **)error;
 - (BOOL)connectIfNecessary;
 

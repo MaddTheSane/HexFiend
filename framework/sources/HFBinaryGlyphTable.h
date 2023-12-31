@@ -12,6 +12,6 @@
 - (instancetype)initWithFont:(HFFont *)font;
 
 @property (readonly) CGFloat advancement;
-@property (readonly) const CGGlyph *table;
+@property (readonly) const CGGlyph *table NS_RETURNS_INNER_POINTER;
 
 @end

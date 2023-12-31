@@ -41,9 +41,7 @@
     _advancement = maxAdv;
 }
 
-- (CGFloat)advancement {
-    return _advancement;
-}
+@synthesize advancement = _advancement;
 
 - (const CGGlyph *)table {
     return _table;

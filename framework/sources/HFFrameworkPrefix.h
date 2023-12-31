@@ -12,6 +12,8 @@
     #import <HexFiend/HFTypes.h>
 #endif
 
+#define PRIVATE_EXTERN extern __attribute__((visibility("hidden")))
+
 #define UNIMPLEMENTED_VOID() [NSException raise:NSGenericException \
                                          format:@"Message %@ sent to instance of class %@, "\
                                                 @"which does not implement that method",\
