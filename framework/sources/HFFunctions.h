@@ -2,7 +2,7 @@
 
 #import <HexFiend/HFFrameworkPrefix.h>
 #import <HexFiend/HFTypes.h>
-#import <libkern/OSAtomic.h>
+#import <stdatomic.h>
 #import <tgmath.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -314,37 +314,57 @@ static inline BOOL HFFPRangeEqualsRange(HFFPRange a, HFFPRange b) {
 /*! copysign() for a CGFloat */
 #define HFCopysign(__a, __b) copysign((__a), (__b))
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+static inline int32_t
+HFAtomicAdd32Barrier(int32_t __theAmount, volatile int32_t *__theValue)
+{
+    return atomic_fetch_add_explicit((volatile _Atomic(int32_t)*) __theValue, __theAmount,
+                                     memory_order_seq_cst) + __theAmount;
+}
+
+static inline int32_t
+HFAtomicAdd32(int32_t __theAmount, volatile int32_t *__theValue)
+{
+    return atomic_fetch_add_explicit((volatile _Atomic(int32_t)*) __theValue, __theAmount,
+                                     memory_order_relaxed) + __theAmount;
+}
+
+static inline int64_t
+HFAtomicAdd64Barrier(int64_t __theAmount, volatile int64_t *__theValue)
+{
+    return atomic_fetch_add_explicit((volatile _Atomic(int64_t)*) __theValue, __theAmount,
+                                     memory_order_seq_cst) + __theAmount;
+}
+
+static inline int64_t
+HFAtomicAdd64(int64_t __theAmount, volatile int64_t *__theValue)
+{
+    return atomic_fetch_add_explicit((volatile _Atomic(int64_t)*) __theValue, __theAmount,
+                                     memory_order_relaxed) + __theAmount;
+}
+
 /*! Atomically increments an NSUInteger, returning the new value.  Optionally invokes a memory barrier. */
 static inline NSUInteger HFAtomicIncrement(volatile NSUInteger *ptr, BOOL barrier) {
     return _Generic(ptr,
-        volatile unsigned *:           (barrier ? OSAtomicIncrement32Barrier : OSAtomicIncrement32)((volatile int32_t *)ptr),
+        volatile unsigned *:           (barrier ? HFAtomicAdd32Barrier : HFAtomicAdd32)(1, (volatile int32_t *)ptr),
 #if ULONG_MAX == UINT32_MAX
-        volatile unsigned long *:      (barrier ? OSAtomicIncrement32Barrier : OSAtomicIncrement32)((volatile int32_t *)ptr),
+        volatile unsigned long *:      (barrier ? HFAtomicAdd32Barrier : HFAtomicAdd32)(1, (volatile int32_t *)ptr),
 #else
-        volatile unsigned long *:      (barrier ? OSAtomicIncrement64Barrier : OSAtomicIncrement64)((volatile int64_t *)ptr),
+        volatile unsigned long *:      (barrier ? HFAtomicAdd64Barrier : HFAtomicAdd64)(1, (volatile int64_t *)ptr),
 #endif
-        volatile unsigned long long *: (barrier ? OSAtomicIncrement64Barrier : OSAtomicIncrement64)((volatile int64_t *)ptr));
+        volatile unsigned long long *: (barrier ? HFAtomicAdd64Barrier : HFAtomicAdd64)(1, (volatile int64_t *)ptr));
 }
 
 /*! Atomically decrements an NSUInteger, returning the new value.  Optionally invokes a memory barrier. */
 static inline NSUInteger HFAtomicDecrement(volatile NSUInteger *ptr, BOOL barrier) {
     return _Generic(ptr,
-        volatile unsigned *:           (barrier ? OSAtomicDecrement32Barrier : OSAtomicDecrement32)((volatile int32_t *)ptr),
+        volatile unsigned *:           (barrier ? HFAtomicAdd32Barrier : HFAtomicAdd32)(-1, (volatile int32_t *)ptr),
 #if ULONG_MAX == UINT32_MAX
-        volatile unsigned long *:      (barrier ? OSAtomicDecrement32Barrier : OSAtomicDecrement32)((volatile int32_t *)ptr),
+        volatile unsigned long *:      (barrier ? HFAtomicAdd32Barrier : HFAtomicAdd32)(-1, (volatile int32_t *)ptr),
 #else
-        volatile unsigned long *:      (barrier ? OSAtomicDecrement64Barrier : OSAtomicDecrement64)((volatile int64_t *)ptr),
+        volatile unsigned long *:      (barrier ? HFAtomicAdd64Barrier : HFAtomicAdd64)(-1, (volatile int64_t *)ptr),
 #endif
-        volatile unsigned long long *: (barrier ? OSAtomicDecrement64Barrier : OSAtomicDecrement64)((volatile int64_t *)ptr));
+        volatile unsigned long long *: (barrier ? HFAtomicAdd64Barrier : HFAtomicAdd64)(-1, (volatile int64_t *)ptr));
 }
-
-/* Function for OSAtomicAdd64 that just does a non-atomic add on PowerPC.  This should not be used where atomicity is critical; an example where this is used is updating a progress bar. */
-static inline int64_t HFAtomicAdd64(int64_t a, volatile int64_t *b) {
-    return OSAtomicAdd64(a, b);
-}
-#pragma clang diagnostic pop
 
 /*! Converts a long double to unsigned long long.  Assumes that val is already an integer - use floorl or ceill */
 static inline unsigned long long HFFPToUL(long double val) {

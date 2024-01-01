@@ -1,5 +1,6 @@
 #import "HFGlyphTrie.h"
 #import <HexFiend/HFAssert.h>
+#import <stdatomic.h>
 
 /* If branchingDepth is 1, then this is a leaf and there's nothing to free (a parent frees its children).  If branchingDepth is 2, then this is a branch whose children are leaves, so we have to free the leaves but we do not recurse.  If branchingDepth is greater than 2, we do have to recurse. */
 static void freeTrie(struct HFGlyphTrieBranch_t *branch, uint8_t branchingDepth) {
@@ -40,10 +41,7 @@ static void insertTrie(void *node, uint8_t branchingDepth, NSUInteger key, struc
                 child = calloc(1, sizeof(struct HFGlyphTrieBranch_t));
             }
             /* We just zeroed out a block of memory and we are about to write its address somewhere where another thread could read it, so we need a memory barrier. */
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            OSMemoryBarrier();
-#pragma clang diagnostic pop
+            atomic_thread_fence(memory_order_seq_cst);
             branch->children[keySlice] = child;
         }
         insertTrie(child, branchingDepth - 1, keyRemainder, value);
