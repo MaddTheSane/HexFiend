@@ -37,16 +37,16 @@ struct HFGlyphTrie_t {
     struct HFGlyphTrieBranch_t root;
 };
 
-/* Initializes a trie with a given key size */
+/*! Initializes a trie with a given key size */
 PRIVATE_EXTERN void HFGlyphTrieInitialize(struct HFGlyphTrie_t *trie, uint8_t keySize);
 
-/* Inserts a glyph into the trie */
+/*! Inserts a glyph into the trie */
 PRIVATE_EXTERN void HFGlyphTrieInsert(struct HFGlyphTrie_t *trie, NSUInteger key, struct HFGlyph_t value);
 
-/* Attempts to fetch a glyph.  If the glyph is not present, returns an HFGlyph_t set to all bits 0. */
+/*! Attempts to fetch a glyph.  If the glyph is not present, returns an HFGlyph_t set to all bits 0. */
 PRIVATE_EXTERN struct HFGlyph_t HFGlyphTrieGet(const struct HFGlyphTrie_t *trie, NSUInteger key);
 
-/* Frees all storage associated with a glyph tree.  This is not necessary to call under GC. */
+/*! Frees all storage associated with a glyph tree. */
 PRIVATE_EXTERN void HFGlyphTreeFree(struct HFGlyphTrie_t * trie);
 
 NS_ASSUME_NONNULL_END
