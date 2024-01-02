@@ -78,6 +78,8 @@
 		A5589ACF2206D3C8000293A4 /* HFOpenAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5589ACE2206D3C8000293A4 /* HFOpenAccessoryViewController.m */; };
 		A5589AD22206E1C4000293A4 /* ExtendedAttributeDataDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A5589AD12206E1C4000293A4 /* ExtendedAttributeDataDocument.m */; };
 		A5628AAB21D8561D00911ABB /* Tcl_ParseArgsObjv.c in Sources */ = {isa = PBXBuildFile; fileRef = A5628AA921D8561C00911ABB /* Tcl_ParseArgsObjv.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		A568D70C2B43D22900159993 /* HFTextDividerRepresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = D01EF15213B2A0D300CC9283 /* HFTextDividerRepresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A568D70E2B43D46200159993 /* ScrollViewRepresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568D70D2B43D46200159993 /* ScrollViewRepresenter.swift */; };
 		A56D78161E7EF088001D1892 /* CLIController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D78151E7EF088001D1892 /* CLIController.m */; };
 		A571E5922A3973140005B388 /* TemplateAutodetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A571E5912A3973140005B388 /* TemplateAutodetection.m */; };
 		A571E5952A3973690005B388 /* HFTemplateFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A571E5942A3973690005B388 /* HFTemplateFile.m */; };
@@ -236,7 +238,7 @@
 		D01E7C160CDC58AA00943F9E /* BaseDataDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D01E7C150CDC58AA00943F9E /* BaseDataDocument.m */; };
 		D01E7C3D0CDC6A3100943F9E /* HFTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = D01E7C3B0CDC69E500943F9E /* HFTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D01E7C960CDC700400943F9E /* HFRepresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D01E7C340CDC646800943F9E /* HFRepresenter.m */; };
-		D01EF15413B2A0D300CC9283 /* TextDividerRepresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EF15313B2A0D300CC9283 /* TextDividerRepresenter.m */; };
+		D01EF15413B2A0D300CC9283 /* HFTextDividerRepresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EF15313B2A0D300CC9283 /* HFTextDividerRepresenter.m */; };
 		D024AFB30E349A7B00F39EBB /* hex_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D024AFB20E349A7B00F39EBB /* hex_icon.icns */; };
 		D026C7B00CDD50ED0082279E /* HFRepresenterTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = D026C7AE0CDD50ED0082279E /* HFRepresenterTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D026C7B10CDD50ED0082279E /* HFRepresenterTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D026C7AF0CDD50ED0082279E /* HFRepresenterTextView.m */; };
@@ -461,6 +463,7 @@
 		A5328D4621E1898A007C4DB0 /* HFHexGlyphTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HFHexGlyphTable.m; path = sources/HFHexGlyphTable.m; sourceTree = "<group>"; };
 		A533B9BF2AD42F5200ECA26E /* HexFiend_2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HexFiend_2-Bridging-Header.h"; path = "app/sources/HexFiend_2-Bridging-Header.h"; sourceTree = "<group>"; };
 		A533B9C02AD42F5300ECA26E /* ChooseStringEncodingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChooseStringEncodingWindowController.swift; path = app/sources/ChooseStringEncodingWindowController.swift; sourceTree = "<group>"; };
+		A54281B22B427F62006DEF81 /* hexf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hexf-Bridging-Header.h"; sourceTree = "<group>"; };
 		A54D8AED2A3ECBD80021FBAB /* ColorByteThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ColorByteThemes; path = app/resources/ColorByteThemes; sourceTree = "<group>"; };
 		A54D8B0B2A4AA5E50021FBAB /* HFByteTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HFByteTheme.h; path = sources/HFByteTheme.h; sourceTree = "<group>"; };
 		A550A7161F7877F8001C79C7 /* hexf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hexf; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -488,6 +491,7 @@
 		A5589AD12206E1C4000293A4 /* ExtendedAttributeDataDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ExtendedAttributeDataDocument.m; path = app/sources/ExtendedAttributeDataDocument.m; sourceTree = "<group>"; };
 		A5628AA921D8561C00911ABB /* Tcl_ParseArgsObjv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Tcl_ParseArgsObjv.c; path = app/sources/Tcl_ParseArgsObjv.c; sourceTree = "<group>"; };
 		A5628AAA21D8561C00911ABB /* Tcl_ParseArgsObjv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tcl_ParseArgsObjv.h; path = app/sources/Tcl_ParseArgsObjv.h; sourceTree = "<group>"; };
+		A568D70D2B43D46200159993 /* ScrollViewRepresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScrollViewRepresenter.swift; path = app/sources/ScrollViewRepresenter.swift; sourceTree = "<group>"; };
 		A56D78141E7EF088001D1892 /* CLIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLIController.h; path = app/sources/CLIController.h; sourceTree = "<group>"; };
 		A56D78151E7EF088001D1892 /* CLIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLIController.m; path = app/sources/CLIController.m; sourceTree = "<group>"; };
 		A571E5902A3973140005B388 /* TemplateAutodetection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TemplateAutodetection.h; path = app/sources/TemplateAutodetection.h; sourceTree = "<group>"; };
@@ -595,8 +599,8 @@
 		D01E7C330CDC646800943F9E /* HFRepresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFRepresenter.h; path = sources/HFRepresenter.h; sourceTree = "<group>"; };
 		D01E7C340CDC646800943F9E /* HFRepresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFRepresenter.m; path = sources/HFRepresenter.m; sourceTree = "<group>"; };
 		D01E7C3B0CDC69E500943F9E /* HFTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFTypes.h; path = sources/HFTypes.h; sourceTree = "<group>"; };
-		D01EF15213B2A0D300CC9283 /* TextDividerRepresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextDividerRepresenter.h; path = app/sources/TextDividerRepresenter.h; sourceTree = "<group>"; };
-		D01EF15313B2A0D300CC9283 /* TextDividerRepresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextDividerRepresenter.m; path = app/sources/TextDividerRepresenter.m; sourceTree = "<group>"; };
+		D01EF15213B2A0D300CC9283 /* HFTextDividerRepresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFTextDividerRepresenter.h; path = sources/HFTextDividerRepresenter.h; sourceTree = "<group>"; };
+		D01EF15313B2A0D300CC9283 /* HFTextDividerRepresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFTextDividerRepresenter.m; path = sources/HFTextDividerRepresenter.m; sourceTree = "<group>"; };
 		D024AFB20E349A7B00F39EBB /* hex_icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = hex_icon.icns; path = app/resources/hex_icon.icns; sourceTree = "<group>"; };
 		D026C7AE0CDD50ED0082279E /* HFRepresenterTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFRepresenterTextView.h; path = sources/HFRepresenterTextView.h; sourceTree = "<group>"; };
 		D026C7AF0CDD50ED0082279E /* HFRepresenterTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFRepresenterTextView.m; path = sources/HFRepresenterTextView.m; sourceTree = "<group>"; };
@@ -941,8 +945,6 @@
 				D01772F40D751DB1002E03DE /* HFDocumentOperationView.m */,
 				D01773900D7A2F32002E03DE /* HFResizingView.h */,
 				D01773910D7A2F32002E03DE /* HFResizingView.m */,
-				D01EF15213B2A0D300CC9283 /* TextDividerRepresenter.h */,
-				D01EF15313B2A0D300CC9283 /* TextDividerRepresenter.m */,
 				D0CBB23E128F78C200989C15 /* StretchableProgressIndicator.h */,
 				D0CBB23F128F78C200989C15 /* StretchableProgressIndicator.m */,
 				A572614821D8A51B00970A0E /* HFPrompt.h */,
@@ -953,6 +955,8 @@
 				A5589ACE2206D3C8000293A4 /* HFOpenAccessoryViewController.m */,
 				9408FC0F19DD8669004F800E /* HFPrivilegedHelperConnection.h */,
 				D04D8FCB102396FC0013A2A1 /* HFPrivilegedHelperConnection.m */,
+				A5B762F92B32AE2F00CA25AE /* HFByteTheme.swift */,
+				A568D70D2B43D46200159993 /* ScrollViewRepresenter.swift */,
 			);
 			name = Miscellaneous;
 			sourceTree = "<group>";
@@ -988,6 +992,7 @@
 			isa = PBXGroup;
 			children = (
 				001BEF972910F23600BB82B3 /* hexf.swift */,
+				A54281B22B427F62006DEF81 /* hexf-Bridging-Header.h */,
 			);
 			path = hexf;
 			sourceTree = "<group>";
@@ -1136,6 +1141,8 @@
 				A582748421DC83A100008DBE /* HFColumnRepresenter.m */,
 				A5AE0C1B21E1D7570044014E /* HFColumnView.h */,
 				A5AE0C1C21E1D7570044014E /* HFColumnView.m */,
+				D01EF15213B2A0D300CC9283 /* HFTextDividerRepresenter.h */,
+				D01EF15313B2A0D300CC9283 /* HFTextDividerRepresenter.m */,
 			);
 			name = Representers;
 			sourceTree = "<group>";
@@ -1302,7 +1309,6 @@
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				D0CD51F40DA2B928006E8D1B /* AppDelegate.h */,
 				D0CD51F50DA2B928006E8D1B /* AppDelegate.m */,
-				A5B762F92B32AE2F00CA25AE /* HFByteTheme.swift */,
 				D02BD6D910545E7B00535EDE /* DocumentTypes */,
 				A533B9DD2AD7CA1000ECA26E /* Encodings */,
 				D084E75C115DAE90004DC181 /* DiffDocument */,
@@ -1555,6 +1561,7 @@
 				D0422FDF0D62599300F8FCDE /* HFProgressTracker.h in Headers */,
 				D0370A3F0D68307A00B3A8C6 /* HFSharedMemoryByteSlice.h in Headers */,
 				A582748521DC83A100008DBE /* HFColumnRepresenter.h in Headers */,
+				A568D70C2B43D22900159993 /* HFTextDividerRepresenter.h in Headers */,
 				D019B9010D83FEB3005789AA /* HFByteSliceFileOperation.h in Headers */,
 				D019B9550D840FE8005789AA /* HFObjectGraph.h in Headers */,
 				A572614D21D9AA7600970A0E /* HFEncodingManager.h in Headers */,
@@ -1953,7 +1960,7 @@
 				A56D78161E7EF088001D1892 /* CLIController.m in Sources */,
 				D059E1291311C676001493B8 /* AppDebugging.m in Sources */,
 				A571E5922A3973140005B388 /* TemplateAutodetection.m in Sources */,
-				D01EF15413B2A0D300CC9283 /* TextDividerRepresenter.m in Sources */,
+				D01EF15413B2A0D300CC9283 /* HFTextDividerRepresenter.m in Sources */,
 				A5589AD22206E1C4000293A4 /* ExtendedAttributeDataDocument.m in Sources */,
 				D0A8AF7D1467273900387627 /* AppUtilities.m in Sources */,
 				D0D0536E1487FF2500704643 /* HFFindReplaceOperationView.m in Sources */,
@@ -1963,6 +1970,7 @@
 				D8EE3EFE16F26689001C7C09 /* DiffRangeWindowController.m in Sources */,
 				A572614A21D8A51B00970A0E /* HFPrompt.m in Sources */,
 				A5B762FA2B32AE2F00CA25AE /* HFByteTheme.swift in Sources */,
+				A568D70E2B43D46200159993 /* ScrollViewRepresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2825,6 +2833,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "hexf/hexf-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -2863,6 +2872,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "hexf/hexf-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -2901,6 +2911,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "hexf/hexf-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -2936,6 +2947,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "hexf/hexf-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -2970,6 +2982,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "hexf/hexf-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = "Release+CodeSign";
@@ -4448,6 +4461,7 @@
 				);
 				PRODUCT_NAME = hexf;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "hexf/hexf-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -4467,6 +4481,7 @@
 				);
 				PRODUCT_NAME = hexf;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "hexf/hexf-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = "Release+MAS";

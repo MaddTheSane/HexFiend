@@ -63,6 +63,7 @@ extern NSString * const BaseDataDocumentDidChangeStringEncodingNotification;
     NSUInteger cleanGenerationCount;
 
     BOOL loadingWindow;
+    BOOL hideTextDividerOverride;
 }
 
 - (void)moveSelectionForwards:(NSMenuItem *)sender;
@@ -139,5 +140,7 @@ extern NSString * const BaseDataDocumentDidChangeStringEncodingNotification;
 - (void)setByteTheme:(HFByteTheme *)byteTheme;
 
 - (void)toggleScrollerVisibleControllerView;
+- (void)toggleTextDividerVisibleControllerView;
+- (void)toggleScrollViewVisibleControllerView;
 
 @end
