@@ -13,10 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSPasteboardType const HFPrivateByteArrayPboardType NS_SWIFT_NAME(hfPrivateByteArray);
 
-@interface HFPasteboardOwner : NSObject {
+@interface HFPasteboardOwner : NSObject <NSPasteboardTypeOwner> {
     @private
     HFByteArray *byteArray;
-    NSPasteboard *pasteboard; //not retained
+    __weak NSPasteboard *pasteboard; //not retained
     IBOutlet NSWindow *progressTrackingWindow;
     IBOutlet NSProgressIndicator *progressTrackingIndicator;
     IBOutlet NSTextField *progressTrackingDescriptionTextField;

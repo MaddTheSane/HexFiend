@@ -26,9 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 	NSUInteger softMaxAllocatedMemory;
 	NSUInteger totalAllocatedMemory;
 	//the following ivars are not retained
-	HFFileReference *file; 
-	HFProgressTracker *progressTracker;
-	NSMutableArray *queue;
+	__weak HFFileReference *file;
+    __weak HFProgressTracker *progressTracker;
+    __weak NSMutableArray *queue;
 }
 
 - (void *)allocateMemoryOfLength:(NSUInteger)len NS_RETURNS_INNER_POINTER;
