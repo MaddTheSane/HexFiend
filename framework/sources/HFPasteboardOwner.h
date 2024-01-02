@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class HFByteArray, HFProgressTracker;
 
-extern NSString *const HFPrivateByteArrayPboardType;
+extern NSPasteboardType const HFPrivateByteArrayPboardType NS_SWIFT_NAME(hfPrivateByteArray);
 
 @interface HFPasteboardOwner : NSObject {
     @private
